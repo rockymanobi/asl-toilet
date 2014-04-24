@@ -8,8 +8,8 @@ ToiletApp.checkDoor = function( door, interactor ){
 
   door.toNextState();
 
-  if( door.hasChangedToOpenState() ) requests.push( door.id + "-OPEN!!");
-  if( door.hasChangedToCloseState() ) requests.push( door.id + "-CLOSE!!");
+  if( door.hasChangedToVacantState() ) requests.push( door.id + "-VACANT!!");
+  if( door.hasChangedToOccupiedState() ) requests.push( door.id + "-OCCUPIED!!");
 
   interactor.showState(door);
 
@@ -45,15 +45,15 @@ httpAction = function( ){
 function main(){
 
   var d1Censor = new ToiletApp.Fake.DoorCensor( "d1" );
-  var door1 = new ToiletApp.Door( {id: "d1", doorCensor: d1Censor });
+  var stall1 = new ToiletApp.Stall( {id: "d1", doorCensor: d1Censor });
   var d1Interactor = new ToiletApp.Fake.Interactor( "d1" );
 
   var d2Censor = new ToiletApp.Fake.DoorCensor( "d2" );
-  var door2 = new ToiletApp.Door( {id: "d2", doorCensor: d2Censor });
+  var stall2 = new ToiletApp.Stall( {id: "d2", doorCensor: d2Censor });
   var d2Interactor = new ToiletApp.Fake.Interactor( "d2" );
 
-  ToiletApp.checkDoorTimer( door1, d1Interactor );
-  ToiletApp.checkDoorTimer( door2, d2Interactor );
+  ToiletApp.checkDoorTimer( stall1, d1Interactor );
+  ToiletApp.checkDoorTimer( stall2, d2Interactor );
   httpActionTimer();
 
 }
