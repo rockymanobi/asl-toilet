@@ -4,7 +4,6 @@
  *   ▪ shower stalls ; especially : a small, enclosed area with a toilet 
  *   ▪ All the (bathroom) stalls were occupied.
  */
-
 ToiletApp = ToiletApp || {};
 ToiletApp.Stall = function( options ){
   var statuses = ToiletApp.Stall.STATUSES;

@@ -9,7 +9,6 @@ http = function(){
 
   if(!connected){
     console.log("ngngngng");
-
   }
 }
 
@@ -17,7 +16,6 @@ http = function(){
 heatBeat = function(s){
   console.log("heatBeat");
 }
-
 
 sync = function(s){
   console.log("hoge");

@@ -1,0 +1,26 @@
+{
+  "name": "kounotolly",
+  "version": "0.0.1",
+  "description": "kounotolly",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "make test && make feature",
+    "prepublish": "./node_modules/.bin/bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rockymanobi/kounotolly.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/rockymanobi/kounotolly/issues"
+  },
+  "homepage": "https://github.com/rockymanobi/kounotolly",
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-clean": "latest",
+    "gulp-shell": "latest",
+    "q": "latest"
+  }
+}
