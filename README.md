@@ -10,7 +10,7 @@
 
 ```bash
 npm install
-gulp watch
+NODE_ENV=development gulp build
 open src/index.html
 ```
 
