@@ -5,6 +5,7 @@ ToiletApp.Fake.DoorCensor = function( id ){
 }
 
 ToiletApp.Fake.DoorCensor.prototype = {
+
   isOpen: function(){
     var element = document.getElementById( this.id + "-door-state"); 
     return element.innerText == "[OPEN]";

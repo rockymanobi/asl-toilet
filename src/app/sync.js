@@ -8,6 +8,7 @@ ToiletApp.SyncRequestProceccer = function( options ){
   this.syncer = options.syncer || { sync: function( target ){ console.log( target ); } };
 }
 
+
 ToiletApp.SyncRequestProceccer.prototype = {
 
   _httpActionTimer: function( _this ){
@@ -16,8 +17,18 @@ ToiletApp.SyncRequestProceccer.prototype = {
     _this.timer = setTimeout( nextAction, _this.interval );
   },
 
+  // there might be no support for array#shift on Espruino.
+  _shiftRequest: function(){
+
+    if(   )
+    var rtn = requests[0];
+
+    this.requests.slice( 1, this.requests.length );
+    return rtn;
+  }
+
   _httpAction: function(){
-    var target = this.requests.shift();
+    var target = this._shiftRequest();
     if(!target) return; 
 
     this.syncer.sync( target );

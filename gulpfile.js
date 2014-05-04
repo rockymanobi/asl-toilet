@@ -8,6 +8,7 @@ fileNameMap = {
   "production": "app.js"
 };
 
+
 gulp.task('sprockets', function(){
   console.log(fileNameMap[process.env.NODE_ENV]);
   gulp.src("")
