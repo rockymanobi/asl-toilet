@@ -1,46 +1,48 @@
 ToiletApp = ToiletApp || {};
 
-ToiletApp.SyncRequestProceccer = function( options ){
-  options = options || {};
-  this.requests = [];
-  this.interval = 2000;
-  this.timer = {};
-  this.syncer = options.syncer || { sync: function( target ){ console.log( target ); } };
-}
+ToiletApp.SyncRequestProceccer = (function(){
 
-
-ToiletApp.SyncRequestProceccer.prototype = {
-
-  _httpActionTimer: function( _this ){
-    nextAction = function(){_this._httpActionTimer(_this)}
-    _this._httpAction();
-    _this.timer = setTimeout( nextAction, _this.interval );
-  },
-
-  // there might be no support for array#shift on Espruino.
-  _shiftRequest: function(){
-
-    if(   )
-    var rtn = requests[0];
-
-    this.requests.slice( 1, this.requests.length );
-    return rtn;
+  function SyncRequestProceccer( options ){
+    options = options || {};
+    this.requests = [];
+    this.interval = 2000;
+    this.timer = {};
+    this.syncer = options.syncer || { sync: function( target ){ console.log( target ); } };
   }
 
-  _httpAction: function(){
-    var target = this._shiftRequest();
-    if(!target) return; 
+  SyncRequestProceccer.prototype = {
 
-    this.syncer.sync( target );
-  },
-  start: function(){
-    this._httpActionTimer( this );
-  },
-  stop: function(){
-    clearTimeout( this.timer );
+    _httpActionTimer: function( _this ){
+      nextAction = function(){_this._httpActionTimer(_this)}
+      _this._httpAction();
+      _this.timer = setTimeout( nextAction, _this.interval );
+    },
+
+    // there might be no support for array#shift on Espruino.
+    _shiftRequest: function(){
+      if( this.requests.length <= 0  ) return;
+      var rtn = requests[0];
+
+      this.requests = this.requests.slice( 1, this.requests.length );
+      return rtn;
+    },
+
+    _httpAction: function(){
+      var target = this._shiftRequest();
+      if(!target) return; 
+
+      this.syncer.sync( target );
+    },
+    start: function(){
+      this._httpActionTimer( this );
+    },
+    stop: function(){
+      clearTimeout( this.timer );
+    }
   }
-}
+  return SyncRequestProceccer;
 
+})();
 
 http = function(){
   var wlan = require("CC3000").connect();
@@ -65,4 +67,5 @@ sync = function(s){
     });
   });
 }
+
 
