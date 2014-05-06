@@ -1,10 +1,12 @@
 ToiletApp.DoorCensor = (function(){ 
-  function DoorCensor( id ){
+  function DoorCensor( id, options ){
+    var _options = options || {};
     this.id = id;
+    this.pin = options.pin || A1;
   }
   DoorCensor.prototype = {
     isOpen: function(){
-      return A1.read();
+      return this.pin.read();
     }
   };
   return DoorCensor;
