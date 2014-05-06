@@ -34,8 +34,8 @@ function onInit(){
   var syncer = new ToiletApp.Syncer();
   R = new ToiletApp.SyncRequestProceccer( {syncer: syncer} );
   
-  var d1Censor = new ToiletApp.DoorCensor( "d1", { pin: A1 } );
-  var stall1 = new ToiletApp.Stall( {id: "d1", doorCensor: d1Censor });
+  var d1Sensor = new ToiletApp.DoorSensor( "d1", { pin: A1 } );
+  var stall1 = new ToiletApp.Stall( {id: "d1", doorSensor: d1Sensor });
   
   ToiletApp.checkDoorTimer( stall1 );
   LED1.write(false);

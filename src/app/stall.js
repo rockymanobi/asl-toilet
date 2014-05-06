@@ -13,7 +13,7 @@ ToiletApp.Stall = ( function(){
     this.state = statuses.initial;
     this.beforeState = statuses.initial;
     this.id = options.id;
-    this.doorCensor = options.doorCensor;
+    this.doorSensor = options.doorSensor;
   }
 
   Stall.STATUSES = {
@@ -36,31 +36,31 @@ ToiletApp.Stall = ( function(){
       var statuses = ToiletApp.Stall.STATUSES;
       var nextState;
       if( this.isInitial() ){
-        if( this.doorCensor.isOpen() ){
+        if( this.doorSensor.isOpen() ){
           nextState = statuses.vacant;
         }else{
           nextState = statuses.occupied;
         }
       }else if( this.isVacant() ){
-        if( this.doorCensor.isOpen() ){
+        if( this.doorSensor.isOpen() ){
           nextState= statuses.vacant;
         }else{
           nextState = statuses.maybe_occupied;
         }
       }else if( this.isMaybeOccupied() ){
-        if( this.doorCensor.isOpen() ){
+        if( this.doorSensor.isOpen() ){
           nextState = statuses.vacant;
         }else{
           nextState = statuses.occupied;
         }
       }else if( this.isOccupied() ){
-        if( this.doorCensor.isOpen() ){
+        if( this.doorSensor.isOpen() ){
           nextState = statuses.maybe_vacant;
         }else{
           nextState = statuses.occupied;
         }
       }else if( this.isMaybeVacant() ){
-        if( this.doorCensor.isOpen() ){
+        if( this.doorSensor.isOpen() ){
           nextState = statuses.vacant;
         }else{
           nextState = statuses.occupied;

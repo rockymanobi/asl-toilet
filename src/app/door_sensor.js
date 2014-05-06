@@ -1,13 +1,13 @@
-ToiletApp.DoorCensor = (function(){ 
-  function DoorCensor( id, options ){
+ToiletApp.DoorSensor = (function(){ 
+  function DoorSensor( id, options ){
     var _options = options || {};
     this.id = id;
     this.pin = options.pin || A1;
   }
-  DoorCensor.prototype = {
+  DoorSensor.prototype = {
     isOpen: function(){
       return this.pin.read();
     }
   };
-  return DoorCensor;
+  return DoorSensor;
 })();
