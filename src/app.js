@@ -1,4 +1,6 @@
 //=require app/init
+//=require app/sync_request_processor
+//=require app/syncer
 //=require lib/shift
 //=require app/enviroments/production
 //=require app/heatbeat
