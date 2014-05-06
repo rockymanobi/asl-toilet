@@ -44,12 +44,12 @@ httpAction = function( ){
 ///////////////////////////////////////////
 function main(){
 
-  var d1Censor = new ToiletApp.Fake.DoorCensor( "d1" );
-  var stall1 = new ToiletApp.Stall( {id: "d1", doorCensor: d1Censor });
+  var d1Sensor = new ToiletApp.Fake.DoorSensor( "d1" );
+  var stall1 = new ToiletApp.Stall( {id: "d1", doorSensor: d1Sensor });
   var d1Interactor = new ToiletApp.Fake.Interactor( "d1" );
 
-  var d2Censor = new ToiletApp.Fake.DoorCensor( "d2" );
-  var stall2 = new ToiletApp.Stall( {id: "d2", doorCensor: d2Censor });
+  var d2Sensor = new ToiletApp.Fake.DoorSensor( "d2" );
+  var stall2 = new ToiletApp.Stall( {id: "d2", doorSensor: d2Sensor });
   var d2Interactor = new ToiletApp.Fake.Interactor( "d2" );
 
   ToiletApp.checkDoorTimer( stall1, d1Interactor );
