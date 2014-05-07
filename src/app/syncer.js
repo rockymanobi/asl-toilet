@@ -5,6 +5,7 @@ ToiletApp.Syncer = (function(){
   
   Syncer.prototype = {
     sync: function( target ){
+      var serverDef = ToiletApp.def.server;
       var payload = {
         id: "",
         status: target
@@ -12,8 +13,8 @@ ToiletApp.Syncer = (function(){
       var urlpayload = "id=" + payload.id +"&status=" + payload.status;
  
       var options = {
-        host: '192.168.100.100',
-        port: '3000',
+        host: serverDef.host,
+        port: serverDef.port,
         path: '/sample_requests',
         headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
