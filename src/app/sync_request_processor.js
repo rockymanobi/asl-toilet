@@ -26,6 +26,8 @@ ToiletApp.SyncRequestProcessor = (function(){
     },
 
     _httpAction: function(){
+      if( !wifi.isReady ){ console.log('not ready'); return; }
+
       var target = this._shiftRequest();
       if(!target) return; 
 

@@ -29,10 +29,12 @@ var statuses = {
 };
 
 var R = void(0);
+var wifi = void(0);
 function onInit(){
   LEDs.show( statuses.started );
   var syncer = new ToiletApp.Syncer();
-  R = new ToiletApp.SyncRequestProceccer( {syncer: syncer} );
+  wifi = new ToiletApp.Wifi();
+  R = new ToiletApp.SyncRequestProcessor( {syncer: syncer} );
   
   var d1Sensor = new ToiletApp.DoorSensor( "d1", { pin: A1 } );
   var stall1 = new ToiletApp.Stall( {id: "d1", doorSensor: d1Sensor });

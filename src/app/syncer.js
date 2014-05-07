@@ -1,13 +1,6 @@
 ToiletApp.Syncer = (function(){
   function Syncer(){
-    this.wlan = require("CC3000").connect();
     this.http = require("http");
-    
-    var h = this.wlan.connect( "HWD14_904E2B402303", "8a6g1tijbi2t8ah", function (s) { 
-      if (s=="dhcp") {
-        console.log('wifi connected!');
-      }
-    });
   }
   
   Syncer.prototype = {
@@ -19,7 +12,7 @@ ToiletApp.Syncer = (function(){
       var urlpayload = "id=" + payload.id +"&status=" + payload.status;
  
       var options = {
-        host: '192.168.100.102',
+        host: '192.168.100.100',
         port: '3000',
         path: '/sample_requests',
         headers: {
