@@ -1,6 +1,7 @@
 //=require lib/util
 //=require lib/espruino/led_status_visualizer
 //=require app/init
+//=require app/def
 //=require app/wifi
 //=require app/sync_request_processor
 //=require app/syncer
