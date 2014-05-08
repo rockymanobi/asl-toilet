@@ -1,17 +1,8 @@
 
-# Get Started
+# Caution
 
-## Requirements
+Toilet-APP for Espruino devices is now maintained on the following repository.
 
-* sprockets
-* npm
-
-## Setup
-
-```bash
-npm install
-NODE_ENV=development gulp build
-open src/index.html
-```
+* [rockymanobi/asl-toilet-server] (https://github.com/rockymanobi/asl-toilet-server/tree/master/app/assets/javascripts/device_app)
 
 
